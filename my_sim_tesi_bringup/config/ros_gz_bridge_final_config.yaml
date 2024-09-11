@@ -1,0 +1,65 @@
+- ros_topic_name: "/robot_scan/cmd_vel"
+  gz_topic_name: "/model/robot_scan/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "ignition.msgs.Twist"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/robot_scan/odometry"
+  gz_topic_name: "/model/robot_scan/odometry"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "ignition.msgs.Odometry"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot_scan/scan"
+  gz_topic_name: "/model/robot_scan/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/tf"
+  gz_topic_name: "/model/robot_scan/pose"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "ignition.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/tf_static"
+  gz_topic_name: "model/robot_scan/pose_static"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "ignition.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/quadcopter/cmd_vel"
+  gz_topic_name: "/quadcopter/command/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "ignition.msgs.Twist"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/quadcopter/odometry"
+  gz_topic_name: "/model/quadcopter/odometry"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "ignition.msgs.Odometry"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/quadcopter/altimeter"
+  gz_topic_name: "/model/quadcopter/altimeter"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/tf"
+  gz_topic_name: "/model/quadcopter/pose"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "ignition.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/tf_static"
+  gz_topic_name: "model/quadcopter/pose_static"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "ignition.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "ignition.msgs.Clock"
+  direction: GZ_TO_ROS
