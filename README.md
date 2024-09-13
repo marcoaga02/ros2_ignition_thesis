@@ -1,5 +1,5 @@
 # ros2_ignition_thesis
-Simulazione con ROS 2 Humble + Ignition Fortress (Gazebo). Utilizzo di Slam Toolbox per la scansione della mappa e del framework nav2 per implementare un sistema di guida autonoma in un magazzino.
+Simulazione con ROS 2 Humble + Ignition Fortress (Gazebo). Utilizzo di Slam Toolbox per la scansione della mappa e del framework nav2 per implementare un sistema di guida autonoma in un magazzino.  
 Questo repository contiene principalemente 4 package ROS 2 e il pdf della mia Tesi di laurea Triennale in Informatica presso l'Università degli Studi di Firenze.
 ### Descrizione contenuto package
 #### my_sim_tesi_bringup
@@ -24,9 +24,9 @@ Questo repository contiene principalemente 4 package ROS 2 e il pdf della mia Te
     2. pose_control_action_client.cpp
     3. pose_control_action_server.cpp
 ### Descrizione generazione mappa statica con Slam Toolbox
-Per generare la mappa statica del magazzino, è stato utilizzato Slam Toolbox.
-ATTENZIONE: prima di avviare l'esecuzione, assicurarsi che nel file my_sim_tesi_gazebo/models/pioneer2dx/model.sdf la configurazione del lidar abbia gli "horizontal samples" impostati a 1200 e il "range max" impostato a 15 (il lidar è configurato in modo che sia più potente durante la scansione della mappa rispetto alla simulazione per poter aquisire dati più precisi).
-Una volta lanciato il file my_sim_map_scan.launch.py (ros2 launch my_sim_tesi_bringup my_sim_map_scan.launch.py), si aprono le applicazioni Gazebo ed Rviz2. Su Gazebo dobbiamo attivare il plugin-gui Key Publisher così da poter muovere il robot a trazione differenziale (modello in my_sim_tesi_gazebo/models/pioneer2dx) tramite la tastiera.
+Per generare la mappa statica del magazzino, è stato utilizzato Slam Toolbox.  
+ATTENZIONE: prima di avviare l'esecuzione, assicurarsi che nel file my_sim_tesi_gazebo/models/pioneer2dx/model.sdf la configurazione del lidar abbia gli "horizontal samples" impostati a 1200 e il "range max" impostato a 15 (il lidar è configurato in modo che sia più potente durante la scansione della mappa rispetto alla simulazione per poter aquisire dati più precisi).  
+Una volta lanciato il file my_sim_map_scan.launch.py (ros2 launch my_sim_tesi_bringup my_sim_map_scan.launch.py), si aprono le applicazioni Gazebo ed Rviz2. Su Gazebo dobbiamo attivare il plugin-gui Key Publisher così da poter muovere il robot a trazione differenziale (modello in my_sim_tesi_gazebo/models/pioneer2dx) tramite la tastiera.  
 Il robot si muove come segue:
 * freccia in sù -> movimento lineare in avanti
 * freccia in giù -> movimento lineare all'indietro
@@ -35,9 +35,9 @@ Il robot si muove come segue:
 * tasto 's' -> il robot si ferma
 Dopo aver navigato per tutto il magazzino, possiamo vedere la mappa scansionata tramite RViz2 e con il comando da terminale Linux "ros2 run nav2_map_server map_saver_cli" generiamo i file map_xxx.yaml e map_xxx.pgm che verranno usati nel framework nav2 per la navigazione autonoma.
 ### Descrizione della simulazione
-ATTENZIONE: prima di avviare la simulazione, assicurarsi che nel file my_sim_tesi_gazebo/models/pioneer2dx/model.sdf la configurazione del lidar abbia gli "horizontal samples" impostati a 450 e il "range max" impostato a 5 (il lidar è configurato in modo che sia più potente durante la scansione della mappa rispetto alla simulazione).
-La simulazione consiste in un drone controllato da nodi ROS 2 che, a seguto del decollo, segue una traiettoria prefissata sulla base del file my_sim_tesi_bringup/files/coordinates_goal.txt. A seguito del decollo, viene avviata la navigazione autonoma del robot a trazione differenziale (utilizzando il framework nav2).
-La simulazione è gestita da un nodo ROS 2 con funzione di orchestratore (file C++ /my_sim_tesi_ros2_nodes/src/orchestrator_node.cpp). Esso, all'inizio della simulazione, pubblica sul topic /quadcopter/start_navigation la stringa "start_drone_navigation" che viene letta dall'action client (file /my_sim_tesi_ros2_nodes/src/pose_control_action_client.cpp) che comincia ad inviare i goal al server (file /my_sim_tesi_ros2_nodes/src/pose_control_action_server.cpp) che iniva comandi di velocità al drone. Al termine dei goal, il client pubblica sul topic /quadcopter/end_navigation la stringa "end_drone_navigation" che viene ricevuta dall'ochestratore che pubblica sul topic /goal_pose di nav2 le coordinate che il robot a guida autonoma dovrà raggiungere così che esso possa avviare la navigazione.
+ATTENZIONE: prima di avviare la simulazione, assicurarsi che nel file my_sim_tesi_gazebo/models/pioneer2dx/model.sdf la configurazione del lidar abbia gli "horizontal samples" impostati a 450 e il "range max" impostato a 5 (il lidar è configurato in modo che sia più potente durante la scansione della mappa rispetto alla simulazione).  
+La simulazione consiste in un drone controllato da nodi ROS 2 che, a seguto del decollo, segue una traiettoria prefissata sulla base del file my_sim_tesi_bringup/files/coordinates_goal.txt. A seguito del decollo, viene avviata la navigazione autonoma del robot a trazione differenziale (utilizzando il framework nav2).  
+La simulazione è gestita da un nodo ROS 2 con funzione di orchestratore (file C++ /my_sim_tesi_ros2_nodes/src/orchestrator_node.cpp). Esso, all'inizio della simulazione, pubblica sul topic /quadcopter/start_navigation la stringa "start_drone_navigation" che viene letta dall'action client (file /my_sim_tesi_ros2_nodes/src/pose_control_action_client.cpp) che comincia ad inviare i goal al server (file /my_sim_tesi_ros2_nodes/src/pose_control_action_server.cpp) che iniva comandi di velocità al drone. Al termine dei goal, il client pubblica sul topic /quadcopter/end_navigation la stringa "end_drone_navigation" che viene ricevuta dall'ochestratore che pubblica sul topic /goal_pose di nav2 le coordinate che il robot a guida autonoma dovrà raggiungere così che esso possa avviare la navigazione.  
 Il seguente sequence diagram descrive, con un livello di astrazione tale da non mostrare i dettagli implementativi del sistema nav2, l'ordine degli eventi durante la simulazione
 ![Testo alternativo](img/sequence_diagram.png)
 ### Riferimenti bibliografici
