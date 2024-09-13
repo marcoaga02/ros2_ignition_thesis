@@ -26,7 +26,7 @@ Questo repository contiene principalemente 4 package ROS 2 e il pdf della mia Te
 ### Descrizione generazione mappa statica con Slam Toolbox
 Per generare la mappa statica del magazzino, è stato utilizzato Slam Toolbox.
 
-ATTENZIONE: prima di avviare l'esecuzione, assicurarsi che nel file my_sim_tesi_gazebo/models/pioneer2dx/model.sdf la configurazione del lidar abbia gli "horizontal samples" impostati a 1200 e il "range max" impostato a 15 (il lidar è configurato in modo che sia più potente durante la scansione della mappa rispetto alla simulazione per poter aquisire dati più precisi).
+ATTENZIONE: prima di avviare l'esecuzione, assicurarsi che nel file my_sim_tesi_gazebo/models/pioneer2dx/model.sdf la configurazione del lidar abbia gli "horizontal samples" impostati a 1200 e il "range max" impostato a 15 (il lidar è configurato in modo che sia più potente durante la scansione della mappa rispetto alla simulazione per poter acquisire dati più precisi).
 
 Una volta lanciato il file my_sim_map_scan.launch.py (ros2 launch my_sim_tesi_bringup my_sim_map_scan.launch.py), si aprono le applicazioni Gazebo ed Rviz2. Su Gazebo dobbiamo attivare il plugin-gui Key Publisher così da poter muovere il robot a trazione differenziale (modello in my_sim_tesi_gazebo/models/pioneer2dx) tramite la tastiera.  
 Il robot si muove come segue:
