@@ -57,11 +57,7 @@ def generate_launch_description():
         output='both',
         parameters=[
             {'use_sim_time': True},
-            {'robot_description': robot_scan_desc},# Passa la descrizione del robot al nodo. robot_desc è una stringa contenente
-            #la descrizione completa del robot, che viene letta dal file SDF. Questa descrizione è utilizzata dal
-            # robot_state_publisher per calcolare e pubblicare le trasformazioni 3D dei giunti del robot.
-            #quando ros cerca di interpretare il contenuto di robot_description, avvia un plugin sdformat_urdf che converte sdf 
-            #in un formato URDF compatibile
+            {'robot_description': robot_scan_desc},
         ]
     )
 

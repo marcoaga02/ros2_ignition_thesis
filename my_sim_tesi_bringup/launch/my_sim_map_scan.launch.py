@@ -24,8 +24,6 @@ def generate_launch_description():
         parameters=[{
             'config_file': os.path.join(pkg_project_bringup, 'config', 'ros_gz_bridge_scan_config.yaml'),
             'qos_overrides./tf_static.publisher.durability': 'transient_local',
-                # Anche se un nodo si connette al topic dopo che alcune trasformazioni sono già state pubblicate,
-                # le troverà ancora disponibili (grazie a durability: 'transient_local')
         }],
         output='screen'
     )
@@ -53,11 +51,7 @@ def generate_launch_description():
         output='both',
         parameters=[
             {'use_sim_time': True},
-            {'robot_description': robot_desc},# Passa la descrizione del robot al nodo. robot_desc è una stringa contenente
-            #la descrizione completa del robot, che viene letta dal file SDF. Questa descrizione è utilizzata dal
-            # robot_state_publisher per calcolare e pubblicare le trasformazioni 3D dei giunti del robot.
-            #quando ros cerca di interpretare il contenuto di robot_description, avvia un plugin sdformat_urdf che converte sdf 
-            #in un formato URDF compatibile
+            {'robot_description': robot_desc},
         ]
     )
 
