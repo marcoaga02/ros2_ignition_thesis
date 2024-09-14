@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+    <model name="Depot">
+        <static>1</static>
+        <link name="main">
+            <collision name="collision">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <plane>
+                        <normal>0 0 1</normal>
+                        <size>100 100</size>
+                    </plane>
+                </geometry>
+            </collision>
+            <visual name="ROOF_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>ROOF</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>1.0 1.0 1.0</diffuse>
+                    <specular>1.0 1.0 1.0</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/ROOF_Albedo.png</albedo_map>
+                            <normal_map>materials/textures/ROOF_Normal.png</normal_map>
+                            <metalness_map>materials/textures/ROOF_Metalness.png</metalness_map>
+                            <roughness_map>materials/textures/ROOF_Roughness.png</roughness_map>
+                            <emissive_map>materials/textures/ROOF_Emissive.png</emissive_map>
+                            <light_map uv_set="1">materials/textures/DepotLightmap.png</light_map>
+                        </metal>
+                    </pbr>
+                    <!-- fallback to script if no PBR support-->
+                    <script>
+                        <uri>materials/scripts/</uri>
+                        <uri>materials/textures/</uri>
+                        <name>UrbanTile/ROOF_Diffuse</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="WALLS_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>WALLS</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>1.0 1.0 1.0</diffuse>
+                    <specular>1.0 1.0 1.0</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/WALLS_Albedo.png</albedo_map>
+                            <normal_map>materials/textures/WALLS_Normal.png</normal_map>
+                            <metalness_map>materials/textures/WALLS_Metalness.png</metalness_map>
+                            <roughness_map>materials/textures/WALLS_Roughness.png</roughness_map>
+                            <light_map uv_set="1">materials/textures/DepotLightmap.png</light_map>
+                        </metal>
+                    </pbr>
+                    <!-- fallback to script if no PBR support-->
+                    <script>
+                        <uri>materials/scripts/</uri>
+                        <uri>materials/textures/</uri>
+                        <name>UrbanTile/WALLS_Diffuse</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="WINDOW_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>WINDOW</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>1.0 1.0 1.0</diffuse>
+                    <specular>1.0 1.0 1.0</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/Window_WINDOW_BaseColor.png</albedo_map>
+                            <metalness_map>materials/textures/Window_WINDOW_Metallic.png</metalness_map>
+                            <roughness_map>materials/textures/Window_WINDOW_Roughness.png</roughness_map>
+                        </metal>
+                    </pbr>
+                    <!-- fallback to script if no PBR support-->
+                    <script>
+                        <uri>materials/scripts/</uri>
+                        <uri>materials/textures/</uri>
+                        <name>UrbanTile/WINDOW_Diffuse</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="INTERCOM_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>INTERCOM</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>1.0 1.0 1.0</diffuse>
+                    <specular>1.0 1.0 1.0</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/INTERCOM_Albedo.png</albedo_map>
+                            <normal_map>materials/textures/INTERCOM_Normal.png</normal_map>
+                            <metalness_map>materials/textures/INTERCOM_Metalness.png</metalness_map>
+                            <roughness_map>materials/textures/INTERCOM_Roughness.png</roughness_map>
+                            <emissive_map>materials/textures/INTERCOM_Emissive.png</emissive_map>
+                            <light_map uv_set="1">materials/textures/DepotLightmap.png</light_map>
+                        </metal>
+                    </pbr>
+                    <!-- fallback to script if no PBR support-->
+                    <script>
+                        <uri>materials/scripts/</uri>
+                        <uri>materials/textures/</uri>
+                        <name>UrbanTile/INTERCOM_Diffuse</name>
+                    </script>
+                </material>
+            </visual>
+            <visual name="FLOOR_visual">
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>FLOOR</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>1.0 1.0 1.0</diffuse>
+                    <specular>1.0 1.0 1.0</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/FLOOR_Albedo.png</albedo_map>
+                            <normal_map>materials/textures/FLOOR_Normal.png</normal_map>
+                            <metalness_map>materials/textures/FLOOR_Metalness.png</metalness_map>
+                            <roughness_map>materials/textures/FLOOR_Roughness.png</roughness_map>
+                            <light_map uv_set="1">materials/textures/DepotLightmap.png</light_map>
+                        </metal>
+                    </pbr>
+                    <!-- fallback to script if no PBR support-->
+                    <script>
+                        <uri>materials/scripts/</uri>
+                        <uri>materials/textures/</uri>
+                        <name>UrbanTile/FLOOR_Diffuse</name>
+                    </script>
+                </material>
+            </visual>
+        </link>
+        <link name="Fan1">
+            <pose>-5.0154 -0.2952 6.12 0 0 0</pose>
+            <visual name="visual">
+                <!-- center in link -->
+                <pose>5.0154 0.2952 -6.12 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>FAN1</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>1.0 1.0 1.0</diffuse>
+                    <specular>1.0 1.0 1.0</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/FANS_Albedo.png</albedo_map>
+                            <normal_map>materials/textures/FANS_Normal.png</normal_map>
+                            <metalness_map>materials/textures/FANS_Metalness.png</metalness_map>
+                            <roughness_map>materials/textures/FANS_Roughness.png</roughness_map>
+                            <light_map uv_set="1">materials/textures/DepotLightmap.png</light_map>
+                        </metal>
+                    </pbr>
+                </material>
+            </visual>
+            <light type="point" name="fan_light">
+                <diffuse>1 1 1 1</diffuse>
+                <specular>0.3 0.3 0.3 1</specular>
+                <attenuation>
+                    <range>50</range>
+                    <linear>0</linear>
+                    <constant>0</constant>
+                    <quadratic>0</quadratic>
+                </attenuation>
+                <cast_shadows>false</cast_shadows>
+                <intensity>0.5</intensity>
+            </light>
+        </link>
+        <link name="Fan2">
+            <pose>5.0154 -0.2952 6.12 0 0 0</pose>
+            <visual name="visual">
+                <!-- center in link -->
+                <pose>5.0154 0.2952 -6.12 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>0.6 0.6 0.6</scale>
+                        <uri>meshes/Depot.dae</uri>
+                        <submesh>
+                            <name>FAN1</name>
+                            <center>false</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+                <material>
+                    <diffuse>1.0 1.0 1.0</diffuse>
+                    <specular>1.0 1.0 1.0</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/FANS_Albedo.png</albedo_map>
+                            <normal_map>materials/textures/FANS_Normal.png</normal_map>
+                            <metalness_map>materials/textures/FANS_Metalness.png</metalness_map>
+                            <roughness_map>materials/textures/FANS_Roughness.png</roughness_map>
+                            <light_map uv_set="1">materials/textures/DepotLightmap.png</light_map>
+                        </metal>
+                    </pbr>
+                </material>
+            </visual>
+            <light type="point" name="fan_light">
+                <diffuse>1 1 1 1</diffuse>
+                <specular>0.3 0.3 0.3 1</specular>
+                <attenuation>
+                    <range>50</range>
+                    <linear>0</linear>
+                    <constant>0</constant>
+                    <quadratic>0</quadratic>
+                </attenuation>
+                <cast_shadows>false</cast_shadows>
+                <intensity>0.5</intensity>
+            </light>
+        </link>
+
+        <joint name="fan1_joint" type="revolute">
+            <parent>main</parent>
+            <child>Fan1</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+        <joint name="fan2_joint" type="revolute">
+            <parent>main</parent>
+            <child>Fan2</child>
+            <axis>
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+
+        <link name="left_wall">
+            <pose>0 7.45 4.65 0 0 0</pose>
+            <collision name="wall_collision_left">
+                <geometry>
+                    <box>
+                        <size>30.36 0.2 9.30</size>
+                    </box>
+                </geometry>
+            </collision>
+
+        </link>
+        <link name="right_wall">
+            <pose>0 -7.65 4.65 0 0 0</pose>
+            <collision name="wall_collision_right">
+                <geometry>
+                    <box>
+                        <size>30.36 0.2 9.30</size>
+                    </box>
+                </geometry>
+            </collision>
+        </link>
+        <link name="front_wall">
+            <pose>15 0 4.65 0 0 1.5708</pose>
+            <collision name="wall_collision_front">
+                <geometry>
+                    <box>
+                        <size>15.2 0.2 9.30</size>
+                    </box>
+                </geometry>
+            </collision>
+        </link>
+        <link name="rear_wall">
+            <pose>-15 0 4.65 0 0 1.5708</pose>
+            <collision name="wall_collision_rear">
+                <geometry>
+                    <box>
+                        <size>15.2 0.2 9.30</size>
+                    </box>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="world_joint_1" type="fixed">
+            <parent>world</parent>
+            <child>left_wall</child>
+        </joint>
+        <joint name="world_joint_2" type="fixed">
+            <parent>world</parent>
+            <child>right_wall</child>
+        </joint>
+        <joint name="world_joint_3" type="fixed">
+            <parent>world</parent>
+            <child>front_wall</child>
+        </joint>
+        <joint name="world_joint_4" type="fixed">
+            <parent>world</parent>
+            <child>rear_wall</child>
+        </joint>
+
+        <joint name="world_joint" type="fixed">
+            <parent>world</parent>
+            <child>main</child>
+        </joint>
+    </model>
+</sdf>

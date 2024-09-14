@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+    <model name = "garage_door">
+        <static>true</static>
+        <link name = "door_link">
+            <visual name = "door_visual">
+                <geometry>
+                    <box>
+                        <size> 0.15 3.30 3.25 </size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.3 0.3 0.3 1</ambient>
+                    <diffuse>0.6 0.6 0.6 1</diffuse>
+                    <specular>0.9 0.9 0.9 1</specular>
+                    <emissive>0 0 0 1</emissive>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>

@@ -1,0 +1,8 @@
+image: "/home/marco-ubuntu-tesi/tesi_ws/install/my_sim_tesi_bringup/share/my_sim_tesi_bringup/map/my_map.pgm"
+mode: trinary
+resolution: 0.05 #ogni pixel della mappa sono 5 centimetri
+#origin: [0, 0, 0]
+origin: [-15.2, -7.7, 0]
+negate: 0
+occupied_thresh: 0.65 # se un pixel ha più del 65% di probabilità di essere occupato -> è considerato occupato
+free_thresh: 0.25 # se un pixel ha meno del 25% di probabilità di essere occupato -> è considerato non occupato

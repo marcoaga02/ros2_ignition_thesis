@@ -1,0 +1,17 @@
+# Request
+float64 target_x
+float64 target_y
+float64 target_yaw
+float64 target_altitude
+---
+# Result
+float64 res_x
+float64 res_y
+float64 res_yaw
+float64 res_altitude
+---
+# Feedback
+float64 current_x
+float64 current_y
+float64 current_yaw
+float64 current_altitude

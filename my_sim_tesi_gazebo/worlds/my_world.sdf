@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.8">
+  <world name="my_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin 
+      filename="ignition-gazebo-physics-system" 
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin 
+      filename="ignition-gazebo-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin 
+      filename="libignition-gazebo-sensors-system.so" 
+      name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- include il modello del magazzino-->
+     <include>
+      <uri>
+          model://Depot
+      </uri>
+      <name>magazzino_scene</name>
+    </include>
+
+    <include>
+      <uri>
+          model://garage_door
+      </uri>
+      <name>right_door</name>
+      <pose> -15.033500 -5.081130 1.687260 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>
+          model://garage_door
+      </uri>
+      <name>central_door</name>
+      <pose> -15.033500 -0.136491 1.687260 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>
+          model://garage_door
+      </uri>
+      <name>left_door</name>
+      <pose> -15.033500 4.803520 1.687260 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>
+          model://pioneer2dx
+      </uri>
+      <name>robot_scan</name>
+      <pose> -13.10 2.64 0 0 0 -1.57079 </pose>
+
+      <plugin
+        filename="ignition-gazebo-pose-publisher-system"
+        name="ignition::gazebo::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+        <use_pose_vector_msg>true</use_pose_vector_msg>
+        <static_publisher>true</static_publisher>
+        <static_update_frequency>1</static_update_frequency>
+      </plugin>
+
+      <plugin
+        filename="ignition-gazebo-odometry-publisher-system"
+        name="ignition::gazebo::systems::OdometryPublisher">
+        <odom_frame>robot_scan/odom</odom_frame>
+        <robot_base_frame>robot_scan</robot_base_frame>
+      </plugin>
+    </include>
+
+    <include>
+      <uri>
+          model://quadcopter
+      </uri>
+      <pose> -10.773700 -2.313900 0.35 0 0 0 </pose>
+      <name>quadcopter</name>
+
+      <plugin
+        filename="ignition-gazebo-pose-publisher-system"
+        name="ignition::gazebo::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+        <use_pose_vector_msg>true</use_pose_vector_msg>
+        <static_publisher>true</static_publisher>
+        <static_update_frequency>1</static_update_frequency>
+      </plugin>
+
+      <plugin
+        filename="ignition-gazebo-odometry-publisher-system"
+        name="ignition::gazebo::systems::OdometryPublisher">
+        <odom_frame>quadcopter/odom</odom_frame>
+        <robot_base_frame>quadcopter</robot_base_frame>
+      </plugin>
+    </include>
+
+    <include>
+      <uri>
+          model://parallelepiped
+      </uri>
+      <pose> -10.773700 -2.313900 0.15 0 0 0 </pose>
+      <name>start_parallelepiped</name>
+    </include>
+
+    <include>
+      <uri>
+          model://parallelepiped
+      </uri>
+      <pose> -1.257560 -0.930217 0.149231 0 0 0 </pose>
+      <name>end_parallelepiped</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> -3.622060 -5.963120 0 0 0 -1.561590 </pose>
+      <name>scaffale_1</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> -3.622070 -1.129210 0 0 0 1.557640 </pose>
+      <name>scaffale_2</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> -7.44 -2.56 0 0 0 -1.565560 </pose>
+      <name>scaffale_3</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> -7.430050 1.32 0 0 0 -1.580670 </pose>
+      <name>scaffale_4</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> -0.979399 0.589092 0 0 0 0 </pose>
+      <name>scaffale_5</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> 0.964757 -1.462030 0 0 0 -1.572590 </pose>
+      <name>scaffale_6</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf_big
+      </uri>
+      <pose> -1.539390 5.256570 0 0 0 1.563140 </pose>
+      <name>scaffale_7</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> 3.85 -2.23 0 0 0 0 </pose>
+      <name>scaffale_8</name>
+    </include>
+
+    <include>
+      <uri>
+          model://shelf
+      </uri>
+      <pose> 6.380100 0.157755 0 0 0 0 </pose>
+      <name>scaffale_9</name>
+    </include>
+
+    <include>
+      <uri>
+          model://pallet_box_mobile
+      </uri>
+      <pose> -10.549000 6.660480 -0.006133 0 0 -1.615600 </pose>
+      <name>pancale_1</name>
+    </include>
+
+    <include>
+      <uri>
+          model://pallet_box_mobile
+      </uri>
+      <pose> 4.809810 -1.044250 -0.005001 0 0 -1.591330 </pose>
+      <name>pancale_2</name>
+    </include>
+  </world>
+</sdf>

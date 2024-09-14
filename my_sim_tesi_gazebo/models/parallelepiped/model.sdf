@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.8">
+    <model name = "parallelepiped">
+        <static>true</static>
+        <link name = "parallelepiped_link">
+            <visual name = "parallelepiped_visual">
+                <geometry>
+                    <box>
+                        <size> 0.7 0.7 0.3 </size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.76 0.60 0.42 1</ambient>
+                    <diffuse>0.76 0.60 0.42 1</diffuse>
+                    <specular>0.2 0.2 0.2 1</specular>
+                    <emissive>0 0 0 1</emissive>
+                </material>
+            </visual>
+            <collision name = "parallelepiped_collision">
+                <geometry>
+                    <box>
+                        <size> 0.7 0.7 0.3 </size>
+                    </box>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>

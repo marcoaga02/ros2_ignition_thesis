@@ -1,0 +1,7 @@
+slam_toolbox:
+  ros__parameters:
+    scan_topic: '/robot_scan/scan'
+    odom_topic: '/robot_scan/odometry'
+    map_frame: 'map'
+    odom_frame: 'robot_scan/odom'
+    base_frame: 'robot_scan/base_footprint' #'robot_scan/base_link'
