@@ -110,7 +110,7 @@
         <lidar>
           <scan>
             <horizontal>
-              <samples>1200</samples> <!-- 450 for simulation and 1200 for scanning -->
+              <samples>450</samples> <!-- 450 for simulation and 1200 for scanning -->
               <resolution>1</resolution>
               <min_angle>-3.1459</min_angle>
               <max_angle>3.1459</max_angle>
@@ -124,7 +124,7 @@
           </scan>
           <range>
             <min>0.05</min>
-            <max>15</max> <!-- 5 for simulation and 15 for scanning-->
+            <max>5</max> <!-- 5 for simulation and 15 for scanning-->
             <resolution>0.01</resolution>
           </range>
           <noise>
