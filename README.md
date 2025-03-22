@@ -2,6 +2,7 @@
 Simulazione con ROS 2 Humble + Ignition Fortress (Gazebo). Utilizzo di Slam Toolbox per la scansione della mappa e del framework nav2 per implementare un sistema di guida autonoma in un magazzino.  
 Questo repository contiene 4 package ROS 2 e il pdf della mia Tesi di laurea Triennale in Informatica presso l'Università degli Studi di Firenze.  
 Guarda il video su [Youtube](https://www.youtube.com/watch?v=otlqoRIzzdI)
+[![Guarda il video su YouTube](https://www.youtube.com/watch?v=otlqoRIzzdI/0.jpg)](https://www.youtube.com/watch?v=otlqoRIzzdI)
 ### Descrizione contenuto package
 #### my_sim_tesi_bringup
   * config/ -> contiene i file di configurazione dei nodi (file .yaml) e di rviz2 (file .rviz);
